@@ -1503,3 +1503,20 @@ justify-content: space-between;
     }
 }
 
+
+@media (max-width:767px){
+   .about .about-content .timeline .timeline-text img {
+    width: 40px;
+    height: 40px;
+   }
+
+  .about .about-content .timeline .timeline-text .graphcms {
+    width: 70px;
+  }
+
+  .email {
+    font-size: 13px;
+  }
+}
+
+
