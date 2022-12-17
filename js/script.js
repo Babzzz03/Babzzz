@@ -1,15 +1,20 @@
+function load() {
+  document.querySelector(".preloader").classList.add("fade-out");
+  setTimeout(() => {
+    document.querySelector(".preloader").style.display = "none";
+  }, 4000);
+};
+
+load()
+
 var typed = new Typed(".typing", {
-  strings: [
-    "",
-    "Web Designer",
-    "web Developer",
-    "Graphic Designer",
-    "Coder",
-  ],
+  strings: ["", "Web Designer", "web Developer", "Graphic Designer", "Coder"],
   typeSpeed: 100,
   BackSpeed: 60,
   loop: true,
 });
+
+
 
 const nav = document.querySelector(".nav"),
   navList = nav.querySelectorAll("li"),
@@ -72,7 +77,6 @@ document.querySelector(".hire-me").addEventListener("click", function () {
   addBackSection(sectionIndex);
 });
 
-
 document.querySelector(".about-me").addEventListener("click", function () {
   const sectionIndex = this.getAttribute("data-section-index");
 
@@ -81,7 +85,6 @@ document.querySelector(".about-me").addEventListener("click", function () {
   removeBackSection();
   addBackSection(sectionIndex);
 });
-
 
 const navTogglerBtn = document.querySelector(".nav-toggler"),
   aside = document.querySelector(".aside");
@@ -97,8 +100,6 @@ function asideSectionTogglerBtn() {
   }
 }
 
-
-
 // function SendMail(){
 //   var params = {
 //     from_name: document.getElementById("fullName").value,
@@ -109,60 +110,49 @@ function asideSectionTogglerBtn() {
 //   emailjs.send("service_f8bxz3v", "template_6qyy6wf", params).then(function (res){
 //     alert("Message sent successfully." );
 
-
-
-
-
-
 //   });
 // };
 
- document.querySelector(".contact-home").addEventListener("click", function () {
+document.querySelector(".contact-home").addEventListener("click", function () {
+  var params = {
+    from_name: document.getElementById("fullName").value,
+    email_id: document.getElementById("email").value,
+    subject: document.getElementById("subject").value,
+    message: document.getElementById("message").value,
+  };
+  emailjs
+    .send("service_f8bxz3v", "template_6qyy6wf", params)
+    .then(function (res) {
+      alert("Message sent successfully.");
+      (document.getElementById("fullName").value = ""),
+        (document.getElementById("email").value = ""),
+        (document.getElementById("subject").value = ""),
+        (document.getElementById("message").value = "");
+    });
 
- var params = {
-   from_name: document.getElementById("fullName").value,
-   email_id: document.getElementById("email").value,
-   subject: document.getElementById("subject").value,
-   message: document.getElementById("message").value,
- };
- emailjs
-   .send("service_f8bxz3v", "template_6qyy6wf", params)
-   .then(function (res) {
-     alert("Message sent successfully.");
-      document.getElementById("fullName").value = '' ,
- document.getElementById("email").value = '' ,
- document.getElementById("subject").value = '' ,
- document.getElementById("message").value = '' ;
-   });
+  const sectionIndex = this.getAttribute("data-section-index");
 
-    const sectionIndex = this.getAttribute("data-section-index");
-
-    showSection(this);
-    updateNav(this);
-    removeBackSection();
-    addBackSection(sectionIndex);
-
-
- });
-
-
+  showSection(this);
+  updateNav(this);
+  removeBackSection();
+  addBackSection(sectionIndex);
+});
 
 var cursor = document.querySelector(".cursor");
 var cursor2 = document.querySelector(".cursor2");
-document.addEventListener("mousemove", function (e){
- cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+document.addEventListener("mousemove", function (e) {
+  cursor.style.cssText = cursor2.style.cssText =
+    "left: " + e.clientX + "px; top: " + e.clientY + "px;";
 });
-
 
 // const button2 = document.querySelector(".ripple2");
 // const butto = document.querySelector(".ripple");
 
 // butto.addEventListener("mousemove", function (e) {
- 
+
 // let x = e.clientX - e.target.offsetLeft;
 // let y = e.clientY - e.target.offsetTop;
 // // let ripples = document.createElement("");
-
 
 //  button2.style.zIndex = 1;
 
@@ -177,12 +167,9 @@ document.addEventListener("mousemove", function (e){
 // }, 1000);
 //  });
 
-
-window.addEventListener('load', () => {
-  document.querySelector('.preloader').classList.add('fade-out');
-  setTimeout(()=> {
-      document.querySelector(".preloader").style.display="none";
-  }, 700)
-})
-
-
+// window.addEventListener('load', () => {
+//   document.querySelector('.preloader').classList.add('fade-out');
+//   setTimeout(()=> {
+//       document.querySelector(".preloader").style.display="none";
+//   }, 700)
+// })
